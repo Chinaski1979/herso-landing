@@ -1,5 +1,9 @@
 ---
-export const prerender = true;
+// Blog tags temporarily disabled — restore when blog is re-enabled.
+return Astro.redirect("/");
+---
+
+<!-- export const prerender = true;
 import { getCollection } from "astro:content";
 import type { AstroSeoProps } from "@astrolib/seo";
 import TagComponent from "@components/blog/Tag.astro";
@@ -7,20 +11,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
 	const allPosts = (await getCollection("posts")).filter((post) => {
-		const [postLang, ...slug] = post.slug.split("/");
+		const [postLang] = post.slug.split("/");
 		return postLang === "en";
 	});
 
 	const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
 	return uniqueTags.map((tag) => {
-		const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
-			.map(post => {
-				// Remove language prefix from slug
-				const [postLang, ...slugParts] = post.slug.split("/");
-				return {
-					...post,
-					slug: slugParts.join("/")
-				};
+		const filteredPosts = allPosts
+			.filter((post) => post.data.tags.includes(tag))
+			.map((post) => {
+				const [, ...slugParts] = post.slug.split("/");
+				return { ...post, slug: slugParts.join("/") };
 			});
 		return {
 			params: { tag },
@@ -34,11 +35,11 @@ const { posts } = Astro.props;
 
 const seo: AstroSeoProps = {
 	title: `${tag} | Hermosa Software`,
-	description: `Explore articles and insights on '${tag}' at Hermosa Software. Dive into a wealth of knowledge covering the latest trends and tips in building web and mobile apps.`,
+	description: `Articles tagged '${tag}' on the Hermosa Software blog.`,
 	canonical: `https://hermosasoftware.io/tags/${tag}/`,
 };
 ---
 
 <BaseLayout seo={seo}>
 	<TagComponent tag={tag} posts={posts} />
-</BaseLayout>
+</BaseLayout> -->

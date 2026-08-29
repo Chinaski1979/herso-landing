@@ -1,16 +1,19 @@
 ---
-import type { AstroSeoProps } from "@astrolib/seo";
+// Blog tags temporarily disabled — restore when blog is re-enabled.
+return Astro.redirect("/");
+---
+
+<!-- import type { AstroSeoProps } from "@astrolib/seo";
 import Tags from "@components/blog/Tags.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const seo: AstroSeoProps = {
-	title: "Tags - Explore Topics at Hermosa Software",
-	description:
-		"Browse through the diverse range of tags at Hermosa Software  to find articles and insights tailored to your interests in web and mobile apps development.",
+	title: "Tags - Hermosa Software",
+	description: "Browse topics on the Hermosa Software blog.",
 	canonical: "https://hermosasoftware.io/tags/",
 };
 ---
 
 <BaseLayout seo={seo}>
 	<Tags />
-</BaseLayout>
+</BaseLayout> -->

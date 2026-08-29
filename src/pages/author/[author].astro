@@ -1,5 +1,9 @@
 ---
-export const prerender = true;
+// Blog author pages temporarily disabled — restore when blog is re-enabled.
+return Astro.redirect("/");
+---
+
+<!-- export const prerender = true;
 import { getCollection } from "astro:content";
 import type { AstroSeoProps } from "@astrolib/seo";
 import AuthorComponent from "@components/blog/Author.astro";
@@ -27,4 +31,4 @@ const seo: AstroSeoProps = {
 
 <BaseLayout seo={seo}>
 	<AuthorComponent author={author} />
-</BaseLayout>
+</BaseLayout> -->

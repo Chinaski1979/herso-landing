@@ -6,6 +6,7 @@ import BackgroundTexture from "@components/global/BackgroundTexture.astro";
 import Footer from "@components/global/Footer.astro";
 import Navigation from "@components/global/Navigation.astro";
 import Contact from "@/components/forms/Contact.astro";
+import { DEFAULT_OG_IMAGE, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 import { getLangFromUrl } from "../i18n/utils";
 
 const { pathname } = Astro.url;
@@ -19,31 +20,22 @@ const { seo: seoProp, hideContact = false } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 
-const shareImage = new URL("/images/meta/hermosa_share.gif", Astro.site).toString();
-
 const defaultSeo: AstroSeoProps = {
-	title: "A Software Company that takes applications to production - Hermosa Software",
+	title: "Hermosa Software — Web & Mobile Apps, Costa Rica",
 	description:
-		"Hermosa Software is a crew of experienced developers who take ideas from 'cool concept' to 'live and in production'",
-	canonical: "https://hermosasoftware.io",
+		"Hermosa Software is a Costa Rica-based development team that ships web apps, React Native mobile apps, and staff augmentation — from concept to production.",
+	canonical: SITE_URL,
 	openGraph: {
-		url: "https://hermosasoftware.io",
-		title: "A Software Company that takes applications to production - Hermosa Software",
+		url: SITE_URL,
+		title: "Hermosa Software — Web & Mobile Apps, Costa Rica",
 		description:
-			"Hermosa Software is a crew of experienced developers who take ideas from 'cool concept' to 'live and in production'",
+			"Hermosa Software is a Costa Rica-based development team that ships web apps, React Native mobile apps, and staff augmentation — from concept to production.",
 		images: [
 			{
-				url: shareImage,
+				url: DEFAULT_OG_IMAGE,
 				width: 1200,
 				height: 630,
-				alt: "Social open graph",
-				type: "image/gif",
-			},
-			{
-				url: shareImage,
-				width: 4096,
-				height: 4096,
-				alt: "Twitter open graph",
+				alt: "Hermosa Software",
 				type: "image/gif",
 			},
 		],
@@ -68,16 +60,18 @@ const seo = {
 };
 
 function cursorFollowerActive() {
-	const paths = ["", "/", "/it/", "/it"];
+	const paths = ["", "/"];
 	return paths.includes(pathname);
 }
-const isContactPage = /(?:^|\/)((it)\/)?contact\/?$/.test(pathname);
+const isContactPage = /(?:^|\/)contact\/?$/.test(pathname);
 ---
 
 <html lang={lang}>
 	<head>
 		<BaseHead />
 		<AstroSeo {...seo} />
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 	</head>
 	<body class="bg-slate-50">
 		<style>html{ scroll-behavior: smooth; }</style>
