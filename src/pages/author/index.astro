@@ -1,20 +1,20 @@
 ---
-import { getCollection } from "astro:content";
+// Blog author pages temporarily disabled — restore when blog is re-enabled.
+return Astro.redirect("/");
+---
+
+<!-- import { getCollection } from "astro:content";
 import type { AstroSeoProps } from "@astrolib/seo";
 import Authors from "@components/blog/Authors.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const allAuthors = await getCollection("authors");
-const pageTitle = "Tag Index";
-
 const seo: AstroSeoProps = {
-	title: "Authors - Hermosa Software: Meet Our Expert Team",
-	description:
-		"Discover the creative minds behind Majestico Studio. Our authors are industry experts in web design, SEO, and digital marketing, web and mobile applications sharing valuable insights.",
+	title: "Authors - Hermosa Software",
+	description: "Meet the Hermosa Software team.",
 	canonical: "https://hermosasoftware.io/author/",
 };
 ---
 
 <BaseLayout seo={seo}>
 	<Authors />
-</BaseLayout>
+</BaseLayout> -->

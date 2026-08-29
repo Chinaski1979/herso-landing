@@ -2,6 +2,7 @@
 export const prerender = true;
 import { getCollection } from "astro:content";
 import type { AstroSeoProps } from "@astrolib/seo";
+import { DEFAULT_OG_IMAGE, SITE_URL, projectSlugFromEntrySlug } from "@/lib/seo";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
@@ -26,37 +27,31 @@ if (!entry) {
 }
 const { Content } = await entry.render();
 
+const projectSlug = projectSlugFromEntrySlug(entry.slug);
+const projectUrl = `${SITE_URL}/work/${projectSlug}/`;
+
 const seo: AstroSeoProps = {
-	title: `Project ${entry.data.title} - Hermosa Software`,
+	title: `${entry.data.title} — Hermosa Software`,
 	description: entry.data.description,
-	canonical: `https://hermosasoftware.io/work/${entry.slug}/`,
+	canonical: projectUrl,
 	openGraph: {
-		url: entry.slug,
+		url: projectUrl,
 		title: entry.data.title,
-		description: "{frontmatter.description}",
+		description: entry.data.description,
 		images: [
 			{
-				url: "https://mintaka.co/opengraph/social-og.jpg",
+				url: DEFAULT_OG_IMAGE,
 				width: 1200,
 				height: 630,
-				alt: "Social open graph",
-				type: "image/jpeg",
+				alt: entry.data.image.alt,
+				type: "image/gif",
 			},
-			{
-				url: "https://mintaka.co/opengraph/twitter-og.jpg",
-				width: 4096,
-				height: 4096,
-				alt: "Twitter open graph",
-				type: "image/jpeg",
-			},
-			{ url: "https://mintaka.co/opengraph/social-og.jpg" },
-			{ url: "https://mintaka.co/opengraph/twitter-og.jpg" },
 		],
 		site_name: "Hermosa Software",
 	},
 	twitter: {
-		handle: "@TwitterHandle",
-		site: "@site",
+		handle: "@hermosasoftware",
+		site: "@hermosasoftware",
 		cardType: "summary_large_image",
 	},
 };

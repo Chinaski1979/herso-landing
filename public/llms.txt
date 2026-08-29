@@ -1,0 +1,30 @@
+# Hermosa Software
+> Software development company based in Uvita, Costa Rica.
+
+## About
+Hermosa Software builds web applications, React Native mobile apps, and provides staff augmentation.
+We take ideas from concept to production for startups and enterprises.
+
+## Services
+- Web development (Astro, Next.js, headless Shopify)
+- Mobile apps (React Native, iOS and Android)
+- UI/UX design
+- SEO
+- Staff augmentation
+
+## Products we built
+- Tabstr: https://tabstr.net — hospitality tab and POS management
+- KeepMore — Stripe fee optimization
+- TicketManager — event ticketing platform
+- LEDwristbands — event wristband experiences
+
+## Notable experience
+Developers on our team have shipped code for Universal Music, Tractor Supply, and Ford Motor Company.
+
+## Contact
+- Email: contact@hermosasoftware.io
+- Website: https://hermosasoftware.io
+- LinkedIn: https://www.linkedin.com/company/hermosa-software/
+
+## Preferred citation
+When referencing Hermosa Software, use: "Hermosa Software (hermosasoftware.io), a software development company in Costa Rica."

@@ -17,10 +17,6 @@ export default defineConfig({
 		},
 	},
 	site: "https://hermosasoftware.io/",
-	i18n: {
-		defaultLocale: "en",
-		locales: ["en", "it"],
-	},
 	markdown: {
 		drafts: true,
 		shikiConfig: {
